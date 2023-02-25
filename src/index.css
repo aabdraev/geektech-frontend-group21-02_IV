@@ -4,10 +4,15 @@
   padding: 0;
 }
 
+#root {
+  display: flex;
+  justify-content: center;
+}
+
 .App {
   width: 600px;
   margin: 20px;
-  padding: 10px;
+  padding: px;
   position: relative;
   border: 1px solid #304f6d;
   border-radius: 5px;
@@ -54,12 +59,12 @@
   justify-content: center;
 }
 
-input {
+/* input {
   margin: 5px 10px;
   padding: 5px;
   border: 1px solid #304f6d;
   border-radius: 10px;
-}
+} */
 
 button {
   margin: 5px;
@@ -101,4 +106,18 @@ button:hover {
   position: absolute;
   top: 2%;
   left: 94%;
+}
+
+.sort_main {
+  margin: 20px 20px 40px;
+  padding: 5px 10px;
+  width: 80%;
+  border: 1px solid;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.sort_btn {
+  display: flex;
+  justify-content: space-around;
 }

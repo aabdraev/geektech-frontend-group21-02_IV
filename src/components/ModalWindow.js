@@ -1,7 +1,7 @@
-import React from 'react'
 import Form from './Form'
 
 const ModalWindow = ({ handleClose, handleAdd, currentTodo, handleEdit }) => {
+
     return (
         <>
             <div className="modal_wrapper">

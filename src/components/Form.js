@@ -1,7 +1,6 @@
 import React from "react"
 import { useState } from "react"
-import Input from "./Input"
-
+import Input from './ui/Input'
 
 const Form = ({ handleAdd, currentTodo, handleEdit, handleClose }) => {
 
@@ -27,6 +26,7 @@ const Form = ({ handleAdd, currentTodo, handleEdit, handleClose }) => {
             handleClose()
         } else {
             handleAdd(value)
+            handleClose()
         }
     }
 
