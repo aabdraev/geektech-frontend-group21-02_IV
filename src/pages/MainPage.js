@@ -69,7 +69,7 @@ const MainPage = () => {
         if (searchValue === "") {
             setFilteredList(todolist)
         }
-        const filteredList = todolist.filter((todolist => todolist.title.includes(searchValue)))
+        const filteredList = todolist.filter((todolist => todolist.title.toLowerCase().includes(searchValue.toLowerCase())))
         setFilteredList(filteredList)
         console.log(filteredList);
     }, [searchValue, todolist])
