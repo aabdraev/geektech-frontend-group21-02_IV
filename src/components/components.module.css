@@ -1,0 +1,23 @@
+.button {
+    width: 90px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #e2f3fd;
+    border: 1px solid #304f6d;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.button_active {
+    width: 100px;
+    background-color: #005ab5;
+    border: 1px solid #000000;
+    color: #e2f3fd;
+}
+
+.input_custom {
+    margin: 5px 10px;
+    padding: 5px;
+    border: 1px solid #304f6d;
+    border-radius: 10px;
+}
