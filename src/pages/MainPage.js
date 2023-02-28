@@ -2,18 +2,13 @@ import React, { useEffect, useState } from 'react'
 import ModalWindow from '../components/ModalWindow'
 import Title from '../components/Title'
 import Todolist from '../components/Todolist'
-import Input from '../components/ui/Input'
 
 
 const MainPage = () => {
 
-
     const [isShow, setIsShow] = useState(false)
     const [todolist, setTodolist] = useState([])
     const [currentTodo, setCurrentTodo] = useState({})
-    const [searchValue, setSearchValue] = useState("")
-    const [filteredList, setFilteredList] = useState(todolist)
-
 
     const handleAdd = (data) => {
         const newTodolist = [...todolist, { ...data, id: Date.now() }]
@@ -65,14 +60,13 @@ const MainPage = () => {
         localStorage.setItem("list", JSON.stringify(todolist))
     }, [todolist])
 
-    useEffect(() => {
-        if (searchValue === "") {
-            setFilteredList(todolist)
-        }
-        const filteredList = todolist.filter((todolist => todolist.title.toLowerCase().includes(searchValue.toLowerCase())))
-        setFilteredList(filteredList)
-        console.log(filteredList);
-    }, [searchValue, todolist])
+    // useEffect(() => {
+    //     if (searchValue === "") {
+    //         setFilteredList(todolist)
+    //     }
+    //     const filteredList = todolist.filter((todolist => todolist.title.toLowerCase().includes(searchValue.toLowerCase())))
+    //     setFilteredList(filteredList)
+    // }, [searchValue, todolist])
 
     return (
         <div className="main_page">
@@ -80,11 +74,10 @@ const MainPage = () => {
                 Todo list
             </Title>
             <button onClick={() => setIsShow(true)}>Add todo note</button>
-            <Input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="Search todo..." />
             {todolist.length === 0
                 ? <h2 style={{ margin: 20 }}> Nothing to do :(</h2>
                 :
-                <Todolist list={filteredList} handleDelete={handleDelete} handleOpen={handleOpen} />
+                <Todolist list={todolist} handleDelete={handleDelete} handleOpen={handleOpen} />
             }
             {
                 isShow && (

@@ -35,6 +35,14 @@
   gap: 10px
 }
 
+.todolist_class_component {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px
+}
+
 .todocard {
   width: 90%;
   margin: 5px;
@@ -109,7 +117,7 @@ button:hover {
 }
 
 .sort_main {
-  margin: 20px 20px 40px;
+  margin: 20px 20px;
   padding: 5px 10px;
   width: 80%;
   border: 1px solid;
@@ -120,4 +128,20 @@ button:hover {
 .sort_btn {
   display: flex;
   justify-content: space-around;
+}
+
+.pages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pages_count {
+  margin: 0 10px;
+}
+
+.errorboundary {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

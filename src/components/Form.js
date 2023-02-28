@@ -1,6 +1,7 @@
 import React from "react"
 import { useState } from "react"
-import Input from './ui/Input'
+// import Input from './ui/Input'
+import InputClass from "./ui/InputClass"
 
 const Form = ({ handleAdd, currentTodo, handleEdit, handleClose }) => {
 
@@ -35,7 +36,8 @@ const Form = ({ handleAdd, currentTodo, handleEdit, handleClose }) => {
             {
                 Object.keys(value).map((item) =>
                     item !== "id" && (
-                        <Input key={item} name={item} value={value[item]} onChange={handleOnChange} placeholder="Enter text" />
+                        // <Input key={item} name={item} value={value[item]} onChange={handleOnChange} placeholder="Enter text" />
+                        <InputClass key={item} name={item} value={value[item]} onChange={handleOnChange} placeholder="Enter text" />
                     )
 
                 )
