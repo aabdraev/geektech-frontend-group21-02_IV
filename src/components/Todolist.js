@@ -11,7 +11,7 @@ import { classNames } from './helpers'
 
 const types = ["asc", "desc", "letter"]
 
-const Todolist = ({ handleDelete, handleOpen, list }) => {
+const Todolist = ({ handleDelete, handleOpen, handleNextPage, handlePrevPage, list, page }) => {
 
     const [type, setType] = useState("asc")
     const [searchValue, setSearchValue] = useState("")
@@ -45,29 +45,6 @@ const Todolist = ({ handleDelete, handleOpen, list }) => {
         setType(type)
     }, [])
 
-    const [pag, setPag] = useState({
-        limit: 3,
-        offset: 0
-    })
-
-    const [page, setPage] = useState(1)
-
-    const handlePrevPage = () => {
-        if (page === 1) return
-        setPag((prev) => ({ ...prev, offset: prev.offset - prev.limit }))
-        setPage(page - 1)
-    }
-
-    const handleNextPage = () => {
-        if (page === countPages) {
-            return
-        }
-        setPag((prev) => ({ ...prev, offset: prev.limit + prev.offset }))
-        setPage(page + 1)
-    }
-
-    const countPages = Math.ceil(filterSort(type).length / pag.limit)
-
     return (
         <>
             {/* <Input value={searchValue} onChange={(e) => setSearchValue(e.target.value)} placeholder="Search todo..." /> */}
@@ -79,7 +56,7 @@ const Todolist = ({ handleDelete, handleOpen, list }) => {
                 }
             </div > */}
             <div className='todolist_class_component'>
-                {filterSort(type).slice(pag.offset, pag.offset + pag.limit).map((item) =>
+                {filterSort(type).map((item) =>
                     <TodoCardClass key={item.id} todo={item} handleOpen={handleOpen} handleDelete={handleDelete} />
                 )}
             </div>
@@ -93,7 +70,7 @@ const Todolist = ({ handleDelete, handleOpen, list }) => {
             </div>
             <div className='pages'>
                 <button onClick={handlePrevPage}>Previous page</button>
-                <h2 className='pages_count'>{page}/{countPages}</h2>
+                <h2 className='pages_count'>{page}</h2>
                 <button onClick={handleNextPage}>Next Page</button>
             </div>
 
