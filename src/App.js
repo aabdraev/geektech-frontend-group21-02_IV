@@ -1,7 +1,8 @@
 import { useState, useCallback, useMemo, useEffect } from "react";
 import { NavLink, Route, Router, Routes } from "react-router-dom";
 import AppRouter from "./common/AppRouter";
-import { routes } from "./common/routeConfig";
+import { PATHS, routes } from "./common/routeConfig";
+import Header from "./Header";
 // import ClassComp from "./ClassComp";
 // import ExampleMemo from "./components/ExampleMemo";
 import "./index.css"
@@ -41,8 +42,7 @@ function App() {
             {/* <input value={value} onChange={(e) => setValue(e.target.value)} />
             <ExampleMemo log={log} amount={amount} /> */}
             {/* <MainPage /> */}
-            <NavLink to={"/"}>Main Page</NavLink>
-            <NavLink to={"/about"}>About Page</NavLink>
+            <Header />
             <AppRouter />
         </div>
     );

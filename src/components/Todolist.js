@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
-// import TodoCard from './TodoCard'
+import TodoCard from './TodoCard'
 // import Input from '../components/ui/Input'
 import SumComp from './SumComp'
 import Hoc from './Hoc'
-import TodoCardClass from './ToDoCardClass'
+// import TodoCardClass from './ToDoCardClass'
 import InputClass from './ui/InputClass'
 
 import classes from "./components.module.css"
@@ -57,14 +57,19 @@ const Todolist = ({ handleDelete, handleOpen, handleNextPage, handlePrevPage, li
             </div > */}
             <div className='todolist_class_component'>
                 {filterSort(type).map((item) =>
-                    <TodoCardClass key={item.id} todo={item} handleOpen={handleOpen} handleDelete={handleDelete} />
+                    <TodoCard key={item.id} todo={item} handleOpen={handleOpen} handleDelete={handleDelete} />
                 )}
             </div>
             <div className='sort_main'>
                 <div style={{ fontSize: 20 }}>Sort</div>
                 <div className='sort_btn'>
                     {types.map((elem) =>
-                        <button key={elem} className={classNames(classes.button_active, classes.button, elem === type)} onClick={() => handleChangeType(elem)}>{elem}</button>
+                        <button
+                            key={elem}
+                            className={classNames(classes.button_active, classes.button, elem === type)}
+                            onClick={() => handleChangeType(elem)}>
+                            {elem}
+                        </button>
                     )}
                 </div>
             </div>
@@ -74,7 +79,7 @@ const Todolist = ({ handleDelete, handleOpen, handleNextPage, handlePrevPage, li
                 <button onClick={handleNextPage}>Next Page</button>
             </div>
 
-            <Hoc Component={SumComp} hocDisplayName={"SumCompWrapper"} />
+            {/* <Hoc Component={SumComp} hocDisplayName={"SumCompWrapper"} /> */}
         </>
     )
 }
